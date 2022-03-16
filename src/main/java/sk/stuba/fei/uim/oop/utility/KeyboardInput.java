@@ -119,7 +119,7 @@ public class KeyboardInput {
 
     public static double readDouble(String promptText, int numberOfTries, String failureText) {
         printPrompt(promptText);
-        return readDouble(numberOfTries, failureText);
+        return readDouble(numberOfTries,failureText);
     }
 
     public static double readDouble(String promptText, int numberOfTries) {
@@ -128,7 +128,7 @@ public class KeyboardInput {
     }
 
     public static double readDouble(int numberOfTries, String failureText) {
-        return repeatInput(numberOfTries, failureText, d -> d == Double.MIN_VALUE, KeyboardInput::readDouble);
+        return repeatInput(numberOfTries,failureText, d -> d == Double.MIN_VALUE, KeyboardInput::readDouble);
     }
 
     public static double readDouble(int numberOfTries) {
@@ -159,7 +159,7 @@ public class KeyboardInput {
         }
     }
 
-    public static boolean readBoolean() {
+    public static boolean readBoolean() throws IllegalArgumentException {
         String input = readString();
         if (input.isEmpty() || Arrays.stream(FALSE_INPUTS).anyMatch(s -> s.equalsIgnoreCase(input))) {
             return false;
